@@ -1,5 +1,15 @@
+import { Link } from "react-router-dom";
+
+
 export default function AdminProductPage() {
     return <>
+        <div className="d-flex justify-content-between p-3">
+            <h3 className="text-white text-center text-uppercase">Admin Products</h3>
+            <div>
+                <Link className="btn btn-info " to="/add-product">Add Product</Link>
+            </div>
+        </div>
+
         <div className="admin-products">
             <div className="admin-product">
                 <img src="chidestech.jpg" alt="" className="admin-product-image" />

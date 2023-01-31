@@ -5,6 +5,8 @@ import Registerpage from './pages/Registerpage';
 import Loginpage from './pages/Loginpage';
 import {BrowserRouter, Routes, Route} from "react-router-dom";
 import AdminProductPage from './pages/AdminProductPage';
+import ExpenseTracker from './components/ExpenseTracker';
+import AddProductPage from './pages/AddProductPage';
 
 function App() {
   return  <BrowserRouter>
@@ -14,8 +16,10 @@ function App() {
     < Route path="/register" element={<Registerpage/>}/>
     < Route path="/login" element={<Loginpage/>}/>
     < Route path="/admin-products" element={<AdminProductPage/>}/>
+    < Route path="/add-product" element={<AddProductPage/>}/>
 
  </Routes> 
+ {/* <ExpenseTracker/> */}
     </BrowserRouter>
 }
 

@@ -33,7 +33,7 @@
 
 
 .admin-product-price{
- font-size: 2rem;
+ font-size: 1.8rem;
  color: aqua;
  flex: 3;
  
@@ -48,3 +48,16 @@
     align-items: center;
 }
 
+/* .table{
+    color: white;
+    font-size: 1.6rem;
+}
+
+.table tr:nth-child(even){
+    background-color: gainsboro;
+    color: black;
+}
+
+.table tr{
+    padding: 1rem;
+} */
