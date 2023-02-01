@@ -1,6 +1,6 @@
 import { useState } from "react"
 import Swal from "sweetalert2";
-import { useNavigate } from "../../node_modules/react-router-dom/dist/index";
+import { useNavigate } from "react-router-dom";
 import http from "../http";
 
 export default function AddProductPage(){
