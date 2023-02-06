@@ -52,7 +52,9 @@ export default function AdminProductPage() {
                 </div>
                 <div className="admin-product-price">₦{product.price} </div>
                 <div className="admin-product-actions">
+                    <Link to={`/edit-product/${product._id}`}>  {/**  /edit-product/gheftwfwutyw6u3666  **/}
                     <button className="btn btn-success"><i className="fa fa-edit"></i></button>
+                    </Link>
                     <button onClick={()=> deleteHandler(product._id)} className="btn btn-danger"><i className="fa fa-trash-alt"></i></button>
                 </div>
             </div>

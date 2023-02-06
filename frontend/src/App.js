@@ -7,7 +7,10 @@ import {BrowserRouter, Routes, Route} from "react-router-dom";
 import AdminProductPage from './pages/AdminProductPage';
 import ExpenseTracker from './components/ExpenseTracker';
 import AddProductPage from './pages/AddProductPage';
+import EditProductPage from './pages/EditProductPage';
 
+
+//CRUD - Create, Read, Update, Delete
 function App() {
   return  <BrowserRouter>
    <Header/>
@@ -17,6 +20,8 @@ function App() {
     < Route path="/login" element={<Loginpage/>}/>
     < Route path="/admin-products" element={<AdminProductPage/>}/>
     < Route path="/add-product" element={<AddProductPage/>}/>
+    < Route path="/edit-product/:id" element={<EditProductPage/>}/>
+    
 
  </Routes> 
  {/* <ExpenseTracker/> */}
