@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { useState } from "react"
+import { Link } from "react-router-dom";
 import http from "../http";
 
 
@@ -88,10 +89,10 @@ export default function Homepage() {
             <div className="row d-flex justify-content-center">
 
 {products.length > 0 && products.map(product => {
-    return  <div className="col" key={product._id}>
-    <div className="card" style={{ width: "18rem" }}>
-        <img src={product.image}
-            className="card-img-top" alt="..." />
+    return <Link className="col" to={`/product/${product._id}`}>   
+    <div  key={product._id}>
+        <div className="card" style={{ width: "18rem" }}>
+         <img src={product.image} className="card-img-top" alt="..." />
         <div className="card-body">
             <h5 className="card-title">{product.title}</h5>
             <p className="card-text">${product.price}</p>
@@ -99,6 +100,9 @@ export default function Homepage() {
         </div>
     </div>
 </div>
+    </Link>  
+    
+   
 })}
 
                

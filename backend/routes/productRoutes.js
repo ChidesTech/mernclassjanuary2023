@@ -1,6 +1,7 @@
 const express = require("express");
 const Product = require("../models/productModel");
 const productRouter = express.Router();
+const {isValidObjectId} = require("mongoose");
 
 //POST A PRODUCT
 productRouter.post("/", async(req, res) =>{
@@ -23,7 +24,10 @@ productRouter.get("/", async(req, res) =>{
 //DELETE A SINGLE PRODUCT
 productRouter.delete("/:id", async(req, res)=>{
     const id = req.params.id;
-    
+    if(!isValidObjectId(id)){
+        res.send({error : "The ID of the product is invalid"});
+        return;
+       }
     const deleteProduct = await Product.findByIdAndDelete(id);
 
     if(deleteProduct){
@@ -38,7 +42,15 @@ productRouter.delete("/:id", async(req, res)=>{
 //GET A SINGLE PRODUCT ROUTE
 productRouter.get("/:id", async(req, res)=>{
     const id = req.params.id;
+    if(!isValidObjectId(id)){
+     res.send({error : "The ID of the product is invalid"});
+     return;
+    }
     const product = await Product.findById(id);
+    if(!product){
+        res.send({error : "Product was not found"});
+        return;  
+    }
     res.send(product);
 
 });
@@ -46,6 +58,10 @@ productRouter.get("/:id", async(req, res)=>{
 //UPDATE A SINGLE PRODUCT ROUTE
 productRouter.put("/:id", async(req, res) =>{
     const id = req.params.id;
+    if(!isValidObjectId(id)){
+        res.send({error : "The ID of the product is invalid"});
+        return;
+       }
     //Get the product you wish to update
     const product = await Product.findById(id);
     //Check if the product exists

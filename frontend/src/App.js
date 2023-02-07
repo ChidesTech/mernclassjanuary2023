@@ -8,6 +8,7 @@ import AdminProductPage from './pages/AdminProductPage';
 import ExpenseTracker from './components/ExpenseTracker';
 import AddProductPage from './pages/AddProductPage';
 import EditProductPage from './pages/EditProductPage';
+import SingleProductPage from './pages/SingleProductPage';
 
 
 //CRUD - Create, Read, Update, Delete
@@ -21,6 +22,8 @@ function App() {
     < Route path="/admin-products" element={<AdminProductPage/>}/>
     < Route path="/add-product" element={<AddProductPage/>}/>
     < Route path="/edit-product/:id" element={<EditProductPage/>}/>
+    < Route path="/product/:id" element={<SingleProductPage/>}/>
+
     
 
  </Routes> 

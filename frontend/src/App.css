@@ -1,3 +1,12 @@
+a{
+    color: black;
+    text-decoration: none;
+}
+
+a:hover{
+    color: black;
+}
+
 .admin-products{
     width: 100%;
     display: flex;
@@ -50,23 +59,55 @@
     align-items: center;
 }
 
+.single-product{
+    color: white;
+    display: flex;
+    padding: .6rem;
+    gap: 1rem;
+}
 
+.single-product-image{
+    width: 50%;
+    height: 25rem;
+    border-radius: .5rem;
+}
+
+.single-product-details{
+    display: flex;
+    width: 40%;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.single-product-title{
+    font-size: 1.3rem;
+    font-weight: bold;
+}
+
+.single-product-price{
+    font-size: 1.6rem;
+    color: green;
+
+}
+
+
+
+@media(max-width : 768px){
+    .single-product{
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .single-product-image{
+        width : 100%;
+    }
+    .single-product-details{
+        width : 100%;
+    }
+}
 @media(max-width : 600px){
      .admin-product{
     flex-direction: column;
     align-items: center;
    }
 }
-/* .table{
-    color: white;
-    font-size: 1.6rem;
-}
-
-.table tr:nth-child(even){
-    background-color: gainsboro;
-    color: black;
-}
-
-.table tr{
-    padding: 1rem;
-} */
