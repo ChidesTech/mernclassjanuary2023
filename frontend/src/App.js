@@ -9,6 +9,7 @@ import ExpenseTracker from './components/ExpenseTracker';
 import AddProductPage from './pages/AddProductPage';
 import EditProductPage from './pages/EditProductPage';
 import SingleProductPage from './pages/SingleProductPage';
+import CartPage from './pages/CartPage';
 
 
 //CRUD - Create, Read, Update, Delete
@@ -23,6 +24,7 @@ function App() {
     < Route path="/add-product" element={<AddProductPage/>}/>
     < Route path="/edit-product/:id" element={<EditProductPage/>}/>
     < Route path="/product/:id" element={<SingleProductPage/>}/>
+    < Route path="/cart" element={<CartPage/>}/>
 
     
 

@@ -3,11 +3,11 @@ import { useEffect } from "react";
 import { Link } from "react-router-dom";
 
 export default function Header() {
-  const [userInfo, setUserInfo] = useState(null)
+  const [userInfo, setUserInfo] = useState(null);
   useEffect(()=>{
     setUserInfo(JSON.parse(localStorage.getItem("userInfo")))
     return ()=>{
-      setUserInfo(null)
+      setUserInfo(null);
     }
   },[]);
 
@@ -28,7 +28,7 @@ export default function Header() {
             <a className="nav-link active" aria-current="page" href="/">Home</a>
           </li>
           <li className="nav-item">
-            <a className="nav-link" href="/">Cart</a>
+            <a className="nav-link" href="/cart">Cart </a>
           </li>
           <li className="nav-item dropdown">
             <a className="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
