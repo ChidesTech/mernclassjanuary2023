@@ -133,6 +133,14 @@ a:hover{
 }
 
 
+.qty-minus{
+    margin-right: 1rem;
+}
+
+.qty-plus{
+    margin-left: 1rem;
+}
+
 @media(max-width : 768px){
     .single-product{
         flex-direction: column;
@@ -147,8 +155,27 @@ a:hover{
     }
   .cart{
     flex-direction: column;
+   
+   }
+   .qty-minus{
+    margin-right: 0;
+}
+
+.qty-plus{
+    margin-left: 0;
+}
+
+   .cart img{
+    width: 5rem;
+    height: 5rem;
    }
 
+   .cart-quantity{
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: center;
+    align-items: center;
+   }
     .cart-items{
         font-size: 1.2rem;
         flex: 1;

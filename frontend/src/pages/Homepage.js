@@ -10,6 +10,8 @@ export default function Homepage() {
 
     const [products, setProducts] = useState([]);
     const cartItems = JSON.parse( localStorage.getItem("cartItems")  || "[]"  );
+    const navigate = useNavigate(); 
+    
 
 
     async function getProducts() {
@@ -25,11 +27,13 @@ export default function Homepage() {
          }
 
 
-        const {data} = await http.get(`/products/${id}`);
-        data.qty = 1;
+        const {data} = await http.get(`/products/${id}`); 
+        data.qty = 1;      
         localStorage.setItem("cartItems", JSON.stringify([...cartItems, data]));
-        Swal.fire("Product Has Been Added To Cart");        
+        Swal.fire("Product Has Been Added To Cart"); 
+        navigate("/cart");     
     }
+
 
    
 
@@ -110,6 +114,7 @@ export default function Homepage() {
         <div className="container">
             <div className="row d-flex justify-content-center">
 
+
                 {products.length > 0 && products.map(product => {
                     return <div className="col" key={product._id}>
                         <div className="card" style={{ width: "18rem" }}>
@@ -120,7 +125,7 @@ export default function Homepage() {
                              <Link to={`/product/${product._id}`}>
                              <h5 className="card-title">{product.title}</h5>
                              </Link>   
-                                <p className="card-text">${product.price}</p>                   
+                                <p className="card-text">${product.price && product.price.toLocaleString()}</p>                   
                                 <div onClick={() => addToCart(product._id)} className="btn btn-dark">Add To Cart</div>
                             </div>
                         </div>
