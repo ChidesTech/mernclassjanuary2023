@@ -1,48 +1,49 @@
 import { useEffect } from "react";
+import { Link } from "react-router-dom";
 
 export default function CartPage() {
     let cartItems = JSON.parse(localStorage.getItem("cartItems") || "[]");
 
-    let totalPrice = 0; 
-    for(let i = 0; i<cartItems.length ; i++){
-        totalPrice += cartItems[i].price * cartItems[i].qty;       
+    let totalPrice = 0;
+    for (let i = 0; i < cartItems.length; i++) {
+        totalPrice += cartItems[i].price * cartItems[i].qty;
     }
 
 
-   function deleteItemHandler(id){
-      cartItems = cartItems.filter(x => x._id !== id);
-      localStorage.setItem("cartItems", JSON.stringify(cartItems));
-      window.location.reload();
-   }
+    function deleteItemHandler(id) {
+        cartItems = cartItems.filter(x => x._id !== id);
+        localStorage.setItem("cartItems", JSON.stringify(cartItems));
+        window.location.reload();
+    }
 
-   function incrementHandler(id){
-    //Find the item in the cart
-    let item = cartItems.find(x => x._id === id);
-    //Increment the quantity if the item by 1
-    item.qty += 1; // item.qty = item.qty + 1;
-    //Replace the item with the new quantity item
-    cartItems.map(x => x._id === id ? item : x);
+    function incrementHandler(id) {
+        //Find the item in the cart
+        let item = cartItems.find(x => x._id === id);
+        //Increment the quantity if the item by 1
+        item.qty += 1; // item.qty = item.qty + 1;
+        //Replace the item with the new quantity item
+        cartItems.map(x => x._id === id ? item : x);
 
-    localStorage.setItem("cartItems", JSON.stringify(cartItems));
-    window.location.reload();
-   }
+        localStorage.setItem("cartItems", JSON.stringify(cartItems));
+        window.location.reload();
+    }
 
-   function decrementHandler(id){  
-    //Find the item in the cart
-    let item = cartItems.find(x => x._id === id);
-    if(item.qty === 1) return;
-    //Increment the quantity if the item by 1
-    item.qty -= 1; // item.qty = item.qty - 1;
-    //Replace the item with the new quantity item
-    cartItems.map(x => x._id === id ? item : x);
+    function decrementHandler(id) {
+        //Find the item in the cart
+        let item = cartItems.find(x => x._id === id);
+        if (item.qty === 1) return;
+        //Increment the quantity if the item by 1
+        item.qty -= 1; // item.qty = item.qty - 1;
+        //Replace the item with the new quantity item
+        cartItems.map(x => x._id === id ? item : x);
 
-    localStorage.setItem("cartItems", JSON.stringify(cartItems));
-    window.location.reload();
-   }
+        localStorage.setItem("cartItems", JSON.stringify(cartItems));
+        window.location.reload();
+    }
 
 
 
- 
+
 
 
     return <>
@@ -53,12 +54,12 @@ export default function CartPage() {
                 {cartItems.map(item => {
                     return <tr key={item._id}>
                         <td>
-             <i onClick={() => deleteItemHandler(item._id)} style={{cursor : "pointer", fontSize : "1.8rem"}} className="fa fa-trash-alt text-danger"></i>
+                            <i onClick={() => deleteItemHandler(item._id)} style={{ cursor: "pointer", fontSize: "1.8rem" }} className="fa fa-trash-alt text-danger"></i>
                             <img src={item.image} alt="" /></td>
                         <td>{item.title}</td>
                         <td>{item.price && item.price.toLocaleString()}</td>
                         <td className="cart-quantity">
-                            <button  onClick={() => decrementHandler(item._id)} className="btn-sm btn-primary qty-minus"><i className="fa fa-minus"></i></button>
+                            <button onClick={() => decrementHandler(item._id)} className="btn-sm btn-primary qty-minus"><i className="fa fa-minus"></i></button>
                             {item.qty}
                             <button onClick={() => incrementHandler(item._id)} className="btn-sm btn-primary qty-plus"><i className="fa fa-plus"></i></button>
                         </td>
@@ -69,7 +70,9 @@ export default function CartPage() {
             <div className="cart-details">
                 <div className="cart-details-text text-align-center">Subtotal of {cartItems.length} cart items</div>
                 <div className="cart-details-price">${totalPrice && totalPrice.toLocaleString()}</div>
-                <button className="btn btn-info">Checkout</button>
+                <Link to={"/checkout"}>
+                    <button className="btn btn-info w-100">Checkout</button>
+                </Link>
             </div>
 
         </div>}

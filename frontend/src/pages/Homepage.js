@@ -16,6 +16,7 @@ export default function Homepage() {
 
     async function getProducts() {
         const { data } = await http.get("/products");
+       
         setProducts(data);
     }
 
@@ -130,10 +131,6 @@ export default function Homepage() {
                             </div>
                         </div>
                     </div>
-
-
-
-
                 })}
 
 

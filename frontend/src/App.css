@@ -141,6 +141,33 @@ a:hover{
     margin-left: 1rem;
 }
 
+.checkout{
+    display: flex;
+    padding: .5rem;
+    align-items: center;
+    color: white;
+    gap: 1.5rem;
+
+}
+
+.checkout div{
+    flex: 1;
+    width: 50%;
+}
+
+.checkout table{
+    width: 100%;
+    /* border:  1px solid grey; */
+    box-shadow: 2px 0px 3px 1px gray;
+ 
+}
+
+.checkout table td{
+    color: white;
+    font-size: 1.4rem;
+    padding: .5rem;
+}
+
 @media(max-width : 768px){
     .single-product{
         flex-direction: column;
@@ -186,6 +213,18 @@ a:hover{
         flex: 1;
         width: 100%;
         text-align: center;
+    }
+
+    .checkout{
+        flex-direction: column;
+    }
+
+    .checkout div{
+        width: 100%;
+    }
+
+    .checkout table td{
+        font-size: 1.2rem;
     }
 }
 @media(max-width : 600px){

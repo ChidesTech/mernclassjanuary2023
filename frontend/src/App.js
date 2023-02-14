@@ -10,6 +10,7 @@ import AddProductPage from './pages/AddProductPage';
 import EditProductPage from './pages/EditProductPage';
 import SingleProductPage from './pages/SingleProductPage';
 import CartPage from './pages/CartPage';
+import CheckoutPage from './pages/CheckoutPage';
 
 
 //CRUD - Create, Read, Update, Delete
@@ -25,6 +26,7 @@ function App() {
     < Route path="/edit-product/:id" element={<EditProductPage/>}/>
     < Route path="/product/:id" element={<SingleProductPage/>}/>
     < Route path="/cart" element={<CartPage/>}/>
+    < Route path="/checkout" element={<CheckoutPage/>}/>
 
     
 
