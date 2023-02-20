@@ -1,8 +1,11 @@
+import { useState } from "react";
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
+import Calculator from "../components/Calculator";
 
 export default function CartPage() {
     let cartItems = JSON.parse(localStorage.getItem("cartItems") || "[]");
+    const [showCalculator, setShowCalculator] = useState(false);
 
     let totalPrice = 0;
     for (let i = 0; i < cartItems.length; i++) {
@@ -46,8 +49,13 @@ export default function CartPage() {
 
 
 
-    return <>
-        {cartItems.length == 0 ? <h1 className="text-white ms-2">No Item In Cart</h1> : <div className="cart">
+
+    return <div style={{position : "relative"}}>
+    <div className="d-flex align-item-end justify-content-end pe-2">
+        < button className="btn btn-primary" onClick={()=>setShowCalculator(true)}>Open Calculator</button></div>
+        {cartItems.length == 0 ? <h1 className="text-white ms-2">
+            No Item In Cart 
+            </h1> : <div className="cart">
 
             <table className="table cart-items">
                 <tr><th>Image</th> <th>Title</th> <th>Price</th> <th>Quantity</th> </tr>
@@ -76,9 +84,10 @@ export default function CartPage() {
             </div>
 
         </div>}
+    
+    {showCalculator && <Calculator close={() => setShowCalculator(false)}/>}
 
 
 
-
-    </>
+    </div>
 }

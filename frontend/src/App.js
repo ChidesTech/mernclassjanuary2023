@@ -11,6 +11,8 @@ import EditProductPage from './pages/EditProductPage';
 import SingleProductPage from './pages/SingleProductPage';
 import CartPage from './pages/CartPage';
 import CheckoutPage from './pages/CheckoutPage';
+import AdminOrdersPage from './pages/AdminOrdersPage';
+import OrderDetailsPage from './pages/OrderDetailsPage';
 
 
 //CRUD - Create, Read, Update, Delete
@@ -27,6 +29,9 @@ function App() {
     < Route path="/product/:id" element={<SingleProductPage/>}/>
     < Route path="/cart" element={<CartPage/>}/>
     < Route path="/checkout" element={<CheckoutPage/>}/>
+    < Route path="/admin-orders" element={<AdminOrdersPage/>}/>
+    < Route path="/order/:id" element={<OrderDetailsPage/>}/>
+   
 
     
 

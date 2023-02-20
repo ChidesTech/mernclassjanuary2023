@@ -16,7 +16,6 @@ export default function Homepage() {
 
     async function getProducts() {
         const { data } = await http.get("/products");
-       
         setProducts(data);
     }
 
@@ -36,6 +35,7 @@ export default function Homepage() {
     }
 
 
+   
    
 
     useEffect(() => {
@@ -111,10 +111,10 @@ export default function Homepage() {
         {/* <!-- grid starts here --> */}
         <center className="w">
             <h1 className="m-5">FEATURED PRODUCTS</h1>
+           
         </center>
         <div className="container">
             <div className="row d-flex justify-content-center">
-
 
                 {products.length > 0 && products.map(product => {
                     return <div className="col" key={product._id}>
@@ -132,10 +132,6 @@ export default function Homepage() {
                         </div>
                     </div>
                 })}
-
-
-
-
             </div>
         </div>
     </>

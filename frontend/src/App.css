@@ -146,13 +146,17 @@ a:hover{
     padding: .5rem;
     align-items: center;
     color: white;
-    gap: 1.5rem;
+    gap: 1rem;
 
 }
 
-.checkout div{
-    flex: 1;
-    width: 50%;
+.checkout div:first-child{
+   
+    width: 55%;
+}
+.checkout div:nth-child(2){
+   
+    width: 45%;
 }
 
 .checkout table{
@@ -167,6 +171,74 @@ a:hover{
     font-size: 1.4rem;
     padding: .5rem;
 }
+
+.table th, .table td{
+    color: white;
+}
+
+
+.order-details{
+    display: flex;
+    flex-direction: row;
+    color: white;
+    gap:  1rem;
+}
+
+.order-details .order-details-info{
+   flex: 3;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+}
+
+.order-details .order-details-actions{
+    flex: 1;
+}
+
+.order-details .order-details-actions form{
+    width:  100%;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+
+
+
+
+.order-details-info div{
+    width:  100%;
+    border:  1px solid white;
+    margin-bottom: 1rem;
+    padding: 1rem;
+    border-radius: 1rem;
+    
+}
+.order-details-info table {
+    width: 100%;
+}
+.order-details-info table td{
+    color: white;
+    padding: .2rem;
+}
+
+
+.order-details-delivery-info table td{
+    font-size: 1.4rem;
+    font-weight: 700;
+}
+
+.order-details-actions form{
+    border:  1px solid white;
+    height: 15rem;
+    border-radius: 1rem;
+}
+
+
+
 
 @media(max-width : 768px){
     .single-product{
@@ -226,6 +298,43 @@ a:hover{
     .checkout table td{
         font-size: 1.2rem;
     }
+
+    .order-details{
+        flex-direction: column;
+        gap: 0;
+
+    }
+
+    .order-details-info{        
+        width: 100%;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+
+    }
+
+    .order-details-info table{
+        width: 100%;
+    }        
+
+
+    .order-details-actions{
+        flex: 1;
+        width: 100%;
+    }
+
+    .order-details table{
+        width: 100%;
+    }
+
+.order-details-info div{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 }
 @media(max-width : 600px){
      .admin-product{

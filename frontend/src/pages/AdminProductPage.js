@@ -2,13 +2,15 @@ import { useState } from "react";
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
+import { useNavigate } from "../../node_modules/react-router-dom/dist/index";
 import http from "../http";
 
 
 export default function AdminProductPage() {
     const [products, setProducts] = useState([]);
     const [loadingProducts, setLoadingProducts] = useState(true);
-
+   const userInfo = JSON.parse(localStorage.getItem("userInfo"));
+   const navigate = useNavigate();
     async function getProducts() {
         const { data } = await http.get("/products");
         setProducts(data);
@@ -34,6 +36,7 @@ export default function AdminProductPage() {
 
     useEffect(() => {
         getProducts();
+        !userInfo.isAdmin && navigate("/")
     }, []);
 
     return <>

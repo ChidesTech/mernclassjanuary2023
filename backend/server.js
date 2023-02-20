@@ -4,6 +4,7 @@ const cors = require("cors"); //cross origin resource sharing (use for interacti
 const User = require("./models/userModel");
 const userRouter = require("./routes/userRoutes");
 const productRouter = require("./routes/productRoutes");
+const orderRouter = require("./routes/orderRoutes");
 
 
 
@@ -23,6 +24,7 @@ app.get("/" , (request, response) =>{
 // Routes Connection
 app.use("/api/users", userRouter);
 app.use("/api/products", productRouter);
+app.use("/api/orders", orderRouter);
 
 
 
