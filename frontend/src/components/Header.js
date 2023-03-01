@@ -42,7 +42,7 @@ export default function Header() {
             {userInfo &&   <ul className="dropdown-menu" aria-labelledby="navbarScrollingDropdown" >
        {userInfo && userInfo.isAdmin && <li><Link className="dropdown-item" to="/admin-products">Admin Products</Link></li> }    
        {userInfo && userInfo.isAdmin && <li><Link className="dropdown-item" to="/admin-orders">Admin Orders</Link></li> }    
-              <li><a className="dropdown-item" href="/login">Order History</a></li>      
+              <li><Link className="dropdown-item" to="/order-history">Order History</Link></li>      
               <li><hr className="dropdown-divider"/></li>
               <li><a onClick={logoutHandler} className="dropdown-item" href="/">Logout</a></li>
             </ul>}

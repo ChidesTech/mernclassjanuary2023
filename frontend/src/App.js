@@ -13,9 +13,11 @@ import CartPage from './pages/CartPage';
 import CheckoutPage from './pages/CheckoutPage';
 import AdminOrdersPage from './pages/AdminOrdersPage';
 import OrderDetailsPage from './pages/OrderDetailsPage';
+import OrderHistoryPage from './pages/OrderHistoryPage';
 
 
-//CRUD - Create, Read, Update, Delete
+//CRUD - Create, Read, Update, Destroy
+      //  Post , Get , Put , Delete
 function App() {
   return  <BrowserRouter>
    <Header/>
@@ -31,6 +33,7 @@ function App() {
     < Route path="/checkout" element={<CheckoutPage/>}/>
     < Route path="/admin-orders" element={<AdminOrdersPage/>}/>
     < Route path="/order/:id" element={<OrderDetailsPage/>}/>
+    < Route path="/order-history" element={<OrderHistoryPage/>}/>
    
 
     

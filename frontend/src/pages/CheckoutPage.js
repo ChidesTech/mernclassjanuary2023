@@ -21,7 +21,8 @@ export default function CheckoutPage() {
             return;
         }
         localStorage.setItem("deliveryInfo", JSON.stringify({ fullName, address, phoneNumber, city }));
-       const {data} = await http.post("/orders", {deliveryInfo : {fullName, address, city, phoneNumber}, orderItems : cartItems, user : userInfo._id })
+       const {data} = await http.post("/orders",
+        {deliveryInfo : {fullName, address, city, phoneNumber}, orderItems : cartItems, user : userInfo._id })
         if(data.error){
             Swal.fire("Error", data.error , "error");
             return;
