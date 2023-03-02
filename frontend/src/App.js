@@ -39,7 +39,10 @@ function App() {
     
 
  </Routes> 
- {/* <ExpenseTracker/> */}
+    <div style={{position : "absolute", bottom : "1rem", width : "100%", fontSize : "1.6rem"}} 
+    className="text-white text-center">
+      {(new Date()).getFullYear()}
+      </div>
     </BrowserRouter>
 }
 

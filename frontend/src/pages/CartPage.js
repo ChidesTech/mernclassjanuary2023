@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import Calculator from "../components/Calculator";
 
 export default function CartPage() {
+    const [cart, setCart] = useState([])
     let cartItems = JSON.parse(localStorage.getItem("cartItems") || "[]");
     const [showCalculator, setShowCalculator] = useState(false);
 
@@ -16,7 +17,7 @@ export default function CartPage() {
     function deleteItemHandler(id) {
         cartItems = cartItems.filter(x => x._id !== id);
         localStorage.setItem("cartItems", JSON.stringify(cartItems));
-        window.location.reload();
+        getCart();
     }
 
     function incrementHandler(id) {
@@ -45,6 +46,14 @@ export default function CartPage() {
     }
 
 
+    const getCart = () => {
+     setCart(cartItems);
+    }
+
+    useEffect(() => {
+        getCart()
+    },[]);
+
 
 
 
@@ -53,13 +62,13 @@ export default function CartPage() {
     return <div style={{position : "relative"}}>
     <div className="d-flex align-item-end justify-content-end pe-2">
         < button className="btn btn-primary" onClick={()=>setShowCalculator(true)}>Open Calculator</button></div>
-        {cartItems.length == 0 ? <h1 className="text-white ms-2">
+        {cart.length == 0 ? <h1 className="text-white ms-2">
             No Item In Cart 
             </h1> : <div className="cart">
 
             <table className="table cart-items">
                 <tr><th>Image</th> <th>Title</th> <th>Price</th> <th>Quantity</th> </tr>
-                {cartItems.map(item => {
+                {cart.map(item => {
                     return <tr key={item._id}>
                         <td>
                             <i onClick={() => deleteItemHandler(item._id)} style={{ cursor: "pointer", fontSize: "1.8rem" }} className="fa fa-trash-alt text-danger"></i>
@@ -76,7 +85,7 @@ export default function CartPage() {
             </table>
 
             <div className="cart-details">
-                <div className="cart-details-text text-align-center">Subtotal of {cartItems.length} cart items</div>
+                <div className="cart-details-text text-align-center">Subtotal of {cart.length} cart items</div>
                 <div className="cart-details-price">${totalPrice && totalPrice.toLocaleString()}</div>
                 <Link to={"/checkout"}>
                     <button className="btn btn-info w-100">Checkout</button>
