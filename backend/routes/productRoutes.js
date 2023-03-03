@@ -18,6 +18,7 @@ productRouter.post("/", async(req, res) =>{
 //GET ALL PRODUCTS
 productRouter.get("/", async(req, res) =>{
     const products = await Product.find();
+    
     res.send(products);
 });
 

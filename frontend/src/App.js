@@ -14,6 +14,7 @@ import CheckoutPage from './pages/CheckoutPage';
 import AdminOrdersPage from './pages/AdminOrdersPage';
 import OrderDetailsPage from './pages/OrderDetailsPage';
 import OrderHistoryPage from './pages/OrderHistoryPage';
+import SearchResultPage from './pages/SearchResultPage';
 
 
 //CRUD - Create, Read, Update, Destroy
@@ -34,15 +35,13 @@ function App() {
     < Route path="/admin-orders" element={<AdminOrdersPage/>}/>
     < Route path="/order/:id" element={<OrderDetailsPage/>}/>
     < Route path="/order-history" element={<OrderHistoryPage/>}/>
+    < Route path="/search/:text" element={<SearchResultPage/>}/>
    
 
     
 
  </Routes> 
-    <div style={{position : "absolute", bottom : "1rem", width : "100%", fontSize : "1.6rem"}} 
-    className="text-white text-center">
-      {(new Date()).getFullYear()}
-      </div>
+   
     </BrowserRouter>
 }
 
